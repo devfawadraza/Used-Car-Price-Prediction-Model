@@ -1,15 +1,20 @@
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.preprocessing import LabelEncoder
+from sklearn.model_selection import train_test_split
+
 
 df = pd.read_csv("data/file.csv")
 
 # basic overview
 # print("shape of dataset", df.shape) #rows x columns 
-# print("Columns names in dataset", df.columns)
+print("Columns names in dataset", df.columns)
 # print("data types", df.dtypes)
 
 # preview data
-# print("\nfirst 5 rows", df.head())
+print("\nfirst 5 rows", df.head())
 
 # print("\n last 5 rows", df.tail())
 
@@ -36,5 +41,5 @@ df = pd.read_csv("data/file.csv")
 
 # print("Correlation Matrix \n:", df.select_dtypes(include=[np.number]).corr())
 
-print(df['title'].head(20))
-print(df['title'].dtype)
+# print(df['title'].head(20))
+# print(df['title'].dtype)
