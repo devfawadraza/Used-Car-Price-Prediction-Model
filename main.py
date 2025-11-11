@@ -64,7 +64,12 @@ print(column_with_zeros)
 
 
 
-# ====================================Remove those values which have zero values=============================
+sns.histplot(df['price'], kde=True)
+plt.title('Car Price Distribution')
+plt.show()
 
+sns.boxplot(x='fuel_type', y='price', data=df)
+plt.title('Fuel Type vs Price')
+plt.show()
 
 
