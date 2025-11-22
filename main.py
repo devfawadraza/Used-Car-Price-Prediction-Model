@@ -57,19 +57,35 @@ print("\n Columns with zero values")
 print(column_with_zeros)
 
 # ===========================================================================
-# Save cleaned dataset to a new CSV file
-# df.to_csv("data/refined_file.csv", index=False)
 
-# print("✅ Cleaned dataset saved successfully as 'data/cleaned_file.csv'")
+# sns.histplot(df['price'], kde=True)
+# plt.title('Car Price Distribution')
+# plt.show()
 
-
-
-sns.histplot(df['price'], kde=True)
-plt.title('Car Price Distribution')
-plt.show()
-
-sns.boxplot(x='fuel_type', y='price', data=df)
-plt.title('Fuel Type vs Price')
-plt.show()
+# sns.boxplot(x='fuel_type', y='price', data=df)
+# plt.title('Fuel Type vs Price')
+# plt.show()
 
 
+# ============================================================================
+# Label encoder
+le = LabelEncoder()
+
+for col in df.select_dtypes(include=['object']).columns:
+    df [col] = le.fit_transform(df[col])
+
+print ("\n Data types after encoding")
+print(df.dtypes.head())
+
+# ============================================================================
+
+# Train test split
+X = df.drop('price', axis=1)
+# target columns output
+y = df['price']
+ # split the data into 80% training and 20% testing
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+print("Data split completed.")
+print("X_train shape:", X_train.shape)
+print("X_test shape:", X_test.shape)    
